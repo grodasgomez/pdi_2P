@@ -28,3 +28,5 @@ def item1(image):
 
     # Guardar y mostrar el resultado
     cv2.imwrite('A.png', result)
+
+    return result
