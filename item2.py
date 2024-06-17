@@ -12,7 +12,6 @@ def item2(a_image):
 
     # Realizar la reconstrucción
     reconstructed_image = reconstruction(a_image, border_mask, debug=False)
-    cv2.imshow('reconstructed_image', reconstructed_image)
 
     not_b_image = cv2.bitwise_xor(a_image, reconstructed_image)
     b_image = cv2.bitwise_not(not_b_image)
