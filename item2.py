@@ -15,6 +15,5 @@ def item2(a_image):
 
     not_b_image = cv2.bitwise_xor(a_image, reconstructed_image)
     b_image = cv2.bitwise_not(not_b_image)
-    cv2.imwrite('B.png', b_image)
     
     return b_image

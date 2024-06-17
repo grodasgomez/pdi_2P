@@ -26,7 +26,5 @@ def item6(a_image, e_image):
 
     # Invertimos la imagen para obtener el resultado final, ya que hasta ahora trabajamos con la inversa.
     f_image = cv2.bitwise_not(not_f_image)
-    
-    cv2.imwrite('F.png', f_image)
 
     return f_image

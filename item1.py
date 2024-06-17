@@ -25,8 +25,4 @@ def item1(image):
 
     result = cv2.bitwise_xor(binary_image, reconstructed_image)
 
-
-    # Guardar y mostrar el resultado
-    cv2.imwrite('A.png', result)
-
     return result

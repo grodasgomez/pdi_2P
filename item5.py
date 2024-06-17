@@ -10,6 +10,4 @@ def item5(c_image):
     # Los "nuevos agujeros" en los agujeros son los núcleos
     e_image = item2(cytoplasm_without_nuclei)
 
-    cv2.imwrite('E.png', e_image)
-
     return e_image
