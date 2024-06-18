@@ -17,8 +17,8 @@ def item6(a_image, e_image):
     a_background = reconstruction(a_image, border_mask, debug=False)
     not_a_background = cv2.bitwise_not(a_background)
 
-    # Usamos los agujeros, para reconstruir las células rellenadas.
-    # Como las células de tipo 1 no tienen agujeros, vamos a quedarnos solo con tipo 2, 3 y 4.
+    # Usamos los núcleos, para reconstruir las células rellenadas.
+    # Como las células de tipo 1, 2 y3 no tienen núcleos, vamos a quedarnos solo con tipo 4.
     f_background = reconstruction(not_a_background, not_e_image, debug=False)
 
     # Volvemos a agregar los agujeros a las células rellenadas
