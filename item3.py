@@ -3,13 +3,6 @@ import numpy as np
 from utils import reconstruction
 
 def item3(a_image, b_image):
-    # Crear una máscara que contenga los bordes de la imagen
-    border_mask = np.zeros_like(a_image, dtype=np.uint8)
-    border_mask[0, :] = a_image[0, :]
-    border_mask[-1, :] = a_image[-1, :]
-    border_mask[:, 0] = a_image[:, 0]
-    border_mask[:, -1] = a_image[:, -1]
-
     # Calculamos la inversa de los agujeros
     not_b_image = cv2.bitwise_not(b_image)
 
