@@ -6,15 +6,16 @@ def ej1(img):
     kernel = [[1,1,1],[1,1,1],[1,1,1]]
     kernel = np.array(kernel, dtype=np.uint8)
     n_iter = 3
+    neg = cv2.bitwise_not(img)
 
     # Sacamos los circulos
-    apertura = cv2.erode(cv2.dilate(image, kernel, iterations=n_iter), kernel, iterations=n_iter)
+    apertura = cv2.erode(cv2.dilate(img, kernel, iterations=n_iter), kernel, iterations=n_iter)
 
     # Agrandamos los circulos un poco para no dejar esquinas
     ero_apertura = cv2.erode(apertura, kernel, iterations=2)
 
     # Sacamos las lineas con los circulos borrados
-    lines_with_holes = cv2.bitwise_and(img, ero_apertura)
+    lines_with_holes = cv2.bitwise_and(neg, ero_apertura)
 
     kernel = [[0,0,0],[1,1,1],[0,0,0]]
     kernel = np.array(kernel, dtype=np.uint8)
@@ -23,7 +24,7 @@ def ej1(img):
     lines = lines_with_holes
     for i in range(20):
         lines = cv2.dilate(lines, kernel, iterations=1)
-        lines = cv2.bitwise_and(img, lines)
+        lines = cv2.bitwise_and(neg, lines)
 
     # Descomentar para debug
     # cv2.imshow('img', img)
@@ -40,7 +41,7 @@ def ej1(img):
 image = cv2.imread('binbolin.jpg', cv2.IMREAD_GRAYSCALE)
 neg = cv2.bitwise_not(image)
 
-r1 = ej1(neg)
+r1 = ej1(image)
 cv2.imshow('image', image)
 cv2.imshow('r1', r1)
 cv2.waitKey(0)
